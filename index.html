@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK WYRM - The Literary Guessing Game</title>
+    <style>
+        @font-face {
+            font-family: 'VT323';
+            src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        }
+
+        body {
+            background-color: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #00ff00;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .ascii-section {
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+        }
+
+        .content-section {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 10px 0;
+            text-shadow: 2px 2px #008800;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        .ascii-art {
+            white-space: pre;
+            font-family: monospace;
+            color: #00ff00;
+            font-size: 12px;
+            text-align: left;
+            animation: breathe 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .flame {
+            color: #ff3300;
+            animation: flicker 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #00ff00; }
+            to { text-shadow: 0 0 20px #00ff00; }
+        }
+
+        .menu {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .menu-item {
+            display: block;
+            padding: 12px;
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 20px;
+            border: 1px solid #00ff00;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            color: #000;
+            background-color: #00ff00;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 20px;
+            border: 2px solid #00ff00;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 20%;
+            background-color: #00ff00;
+            animation: loading 2s linear infinite;
+        }
+
+        @keyframes loading {
+            0% { left: -20%; }
+            100% { left: 100%; }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+                border-width: 1px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .ascii-art {
+                font-size: 8px;
+            }
+
+            .menu-item {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ascii-section">
+            <div class="ascii-art">
+                ___====-_  _-====___
+                _--^^^#####//      \\#####^^^--_
+             _-^##########// (    ) \\##########^-_
+            -############//  |\^^/|  \\############-
+          _/############//   (@::@)   \\############\_
+         /#############((     \\//     ))#############\
+        -###############\\    (oo)    //###############-
+       -#################\\  / "" \  //#################-
+      -###################\\/  ||  \/###################-
+     _#/|##########/\######(   ''   )######/\##########|\#_
+     |/ |#/\#/\#/\/  \#/\##\   __   /##/\#/  \/\#/\#/\#| \|
+     \_/ \_/  \_/    \_/  | _|  |_ |  \_/    \_/  \_/ \_/
+               _               (_/  \_)
+              (_)       /\  /\   //\\
+  __          _         //  \\  | | |
+_ / /         | |       | |  | | \_/|
+/ _ \         _| |_      \_/  |_/  (_)
+/_/ \_\       |_____|  
+            </div>
+        </div>
+        <div class="content-section">
+            <h1>BOOK WYRM</h1>
+            <p class="blink">> LOADING LITERARY DATABASE...</p>
+            <div class="loading-bar"></div>
+            <p>WELCOME TO THE ULTIMATE BOOK GUESSING CHALLENGE</p>
+            <p>CAN YOU IDENTIFY THE BOOK FROM A MYSTERIOUS PASSAGE?</p>
+            <div class="menu">
+                <a href="game.html" class="menu-item">> START GAME</a>
+                <a href="instructions.html" class="menu-item">> INSTRUCTIONS</a>
+                <a href="about.html" class="menu-item">> ABOUT</a>
+            </div>
+            <p class="blink">PRESS ANY MENU ITEM TO CONTINUE...</p>
+        </div>
+    </div>
+</body>
+</html> 

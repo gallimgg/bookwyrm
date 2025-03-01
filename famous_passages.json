@@ -1,0 +1,124 @@
+{
+    "passages": [
+        {
+            "text": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+            "book": "Pride and Prejudice",
+            "author": "Jane Austen",
+            "year": 1813
+        },
+        {
+            "text": "All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden.",
+            "book": "Peter Pan",
+            "author": "J.M. Barrie",
+            "year": 1911
+        },
+        {
+            "text": "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little.",
+            "book": "Moby Dick",
+            "author": "Herman Melville",
+            "year": 1851
+        },
+        {
+            "text": "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity.",
+            "book": "A Tale of Two Cities",
+            "author": "Charles Dickens",
+            "year": 1859
+        },
+        {
+            "text": "In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it.",
+            "book": "The Hobbit",
+            "author": "J.R.R. Tolkien",
+            "year": 1937
+        },
+        {
+            "text": "Happy families are all alike; every unhappy family is unhappy in its own way. Everything was in confusion in the Oblonskys' house. The wife had discovered that the husband was carrying on an intrigue.",
+            "book": "Anna Karenina",
+            "author": "Leo Tolstoy",
+            "year": 1877
+        },
+        {
+            "text": "Last night I dreamt I went to Manderley again. It seemed to me I stood by the iron gate leading to the drive, and for a while I could not enter, for the way was barred to me.",
+            "book": "Rebecca",
+            "author": "Daphne du Maurier",
+            "year": 1938
+        },
+        {
+            "text": "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much. They were the last people you'd expect to be involved in anything strange or mysterious.",
+            "book": "Harry Potter and the Philosopher's Stone",
+            "author": "J.K. Rowling",
+            "year": 1997
+        },
+        {
+            "text": "Scarlett O'Hara was not beautiful, but men seldom realized it when caught by her charm as the Tarleton twins were. In her face were too sharply blended the delicate features of her mother.",
+            "book": "Gone with the Wind",
+            "author": "Margaret Mitchell",
+            "year": 1936
+        },
+        {
+            "text": "If you really want to hear about it, the first thing you'll probably want to know is where I was born, and what my lousy childhood was like, and how my parents were occupied before they had me.",
+            "book": "The Catcher in the Rye",
+            "author": "J.D. Salinger",
+            "year": 1951
+        },
+        {
+            "text": "It was a bright cold day in April, and the clocks were striking thirteen. Winston Smith, his chin nuzzled into his breast in an effort to escape the vile wind, slipped quickly through the glass doors.",
+            "book": "1984",
+            "author": "George Orwell",
+            "year": 1949
+        },
+        {
+            "text": "You don't know about me without you have read a book by the name of The Adventures of Tom Sawyer; but that ain't no matter. That book was made by Mr. Mark Twain, and he told the truth, mainly.",
+            "book": "Adventures of Huckleberry Finn",
+            "author": "Mark Twain",
+            "year": 1884
+        },
+        {
+            "text": "Mother died today. Or maybe yesterday; I can't be sure. The telegram from the Home says: YOUR MOTHER PASSED AWAY. FUNERAL TOMORROW. DEEP SYMPATHY. Which leaves the matter doubtful.",
+            "book": "The Stranger",
+            "author": "Albert Camus",
+            "year": 1942
+        },
+        {
+            "text": "As Gregor Samsa awoke one morning from uneasy dreams he found himself transformed in his bed into a gigantic insect. He was lying on his hard, as it were armor-plated, back.",
+            "book": "The Metamorphosis",
+            "author": "Franz Kafka",
+            "year": 1915
+        },
+        {
+            "text": "Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.",
+            "book": "One Hundred Years of Solitude",
+            "author": "Gabriel García Márquez",
+            "year": 1967
+        },
+        {
+            "text": "It was a pleasure to burn. It was a special pleasure to see things eaten, to see things blackened and changed. With the brass nozzle in his fists, with this great python spitting its venomous kerosene.",
+            "book": "Fahrenheit 451",
+            "author": "Ray Bradbury",
+            "year": 1953
+        },
+        {
+            "text": "Two households, both alike in dignity, In fair Verona, where we lay our scene, From ancient grudge break to new mutiny, Where civil blood makes civil hands unclean.",
+            "book": "Romeo and Juliet",
+            "author": "William Shakespeare",
+            "year": 1597
+        },
+        {
+            "text": "Whether I shall turn out to be the hero of my own life, or whether that station will be held by anybody else, these pages must show. To begin my life with the beginning of my life.",
+            "book": "David Copperfield",
+            "author": "Charles Dickens",
+            "year": 1850
+        },
+        {
+            "text": "In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since. 'Whenever you feel like criticizing anyone,' he told me, 'just remember.'",
+            "book": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "year": 1925
+        },
+        {
+            "text": "The sun shone, having no alternative, on the nothing new. Murphy sat out of it, as though he were free, in a mew in West Brompton. Here for what might have been six months he had eaten, drunk, slept.",
+            "book": "Murphy",
+            "author": "Samuel Beckett",
+            "year": 1938
+        }
+    ]
+} 

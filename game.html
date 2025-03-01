@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK WYRM - The Game</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 16px;
+        }
+        
+        #gameContainer {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            border: 2px solid #00ff00;
+            padding: 15px;
+            box-shadow: 0 0 10px #00ff00;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            font-size: 2em;
+            margin: 0 0 15px 0;
+            text-shadow: 2px 2px #008800;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            color: #00ff00;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #00ff00,
+                           0 0 10px #00ff00,
+                           0 0 15px #00ff00;
+            }
+            to {
+                text-shadow: 0 0 10px #00ff00,
+                           0 0 20px #00ff00,
+                           0 0 30px #00ff00;
+            }
+        }
+        
+        #bookPassage {
+            white-space: pre-wrap;
+            text-align: left;
+            background-color: #001100;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            line-height: 1.6;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            max-height: 40vh;
+            overflow-y: auto;
+            font-size: 1em;
+        }
+        
+        .input-container {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .input-row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: stretch;
+        }
+        
+        input {
+            background-color: #001100;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 12px;
+            border-radius: 5px;
+            width: 100%;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        
+        input::placeholder {
+            color: #008800;
+        }
+        
+        .button-row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        button {
+            background-color: #001100;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            min-height: 50px;
+            touch-action: manipulation;
+        }
+        
+        button:hover, button:active {
+            background-color: #00ff00;
+            color: #000;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        
+        button:disabled {
+            background-color: #001100;
+            border-color: #004400;
+            color: #004400;
+            cursor: not-allowed;
+        }
+        
+        #result {
+            margin: 20px 0;
+            font-size: 1.2em;
+            min-height: 1.5em;
+            padding: 10px;
+        }
+        
+        .blink {
+            animation: blink-animation 0.5s steps(5, start) infinite;
+            color: #ff0000;
+        }
+        
+        @keyframes blink-animation {
+            to { visibility: hidden; }
+        }
+        
+        #wordCount, #arrowsUsed {
+            color: #008800;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .options-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin: 10px 0;
+            padding: 0 10px;
+        }
+        
+        .menu-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .menu-item {
+            color: #00ff00;
+            text-decoration: none;
+            padding: 15px;
+            border: 1px solid #00ff00;
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        .menu-item:hover, .menu-item:active {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .button-row {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .input-row {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .options-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .menu-bar {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            input {
+                width: 250px;
+            }
+        }
+
+        .mode-selector {
+            position: relative;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 255, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .mode-btn {
+            padding: 8px 16px;
+            border: 1px solid #00ff00;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #001100;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            min-width: 150px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        .mode-btn:hover {
+            background-color: #00ff00;
+            color: #000;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .mode-btn.active {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        #dailyInfo {
+            position: relative;
+            top: 0;
+            right: 0;
+            background: rgba(0, 255, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mode-selector">
+        <button class="mode-btn active" onclick="setGameMode('daily')">Daily Challenge</button>
+        <button class="mode-btn" onclick="setGameMode('free')">Free Play</button>
+    </div>
+    <div id="dailyInfo">
+        Next challenge in: <span id="nextChallengeTime"></span>
+    </div>
+    <div id="gameContainer">
+        <h1>BOOK WYRM</h1>
+        <div id="bookPassage"></div>
+        <div id="wordCount"></div>
+        <div id="arrowsUsed">Arrows Used: 0</div>
+        
+        <div class="button-row">
+            <button id="moreTextBtn" onclick="requestMoreText('text')">Get More Text (Use Arrow)</button>
+            <button id="titleChoiceBtn" onclick="requestMoreText('title')">Show Title Options (Use Arrow)</button>
+            <button id="authorChoiceBtn" onclick="requestMoreText('author')">Show Author Options (Use Arrow)</button>
+        </div>
+        
+        <div class="input-container">
+            <div class="input-row">
+                <input type="text" id="titleInput" placeholder="Enter the book title">
+                <input type="text" id="authorInput" placeholder="Enter the author's name">
+            </div>
+            <div id="titleOptions" class="options-list" style="display: none;"></div>
+            <div id="authorOptions" class="options-list" style="display: none;"></div>
+            <button onclick="checkGuess()">Submit Guess</button>
+        </div>
+        
+        <div id="result"></div>
+        
+        <div class="menu-bar">
+            <a href="index.html" class="menu-item">> MENU</a>
+            <a href="game.html" class="menu-item">> NEW</a>
+        </div>
+    </div>
+    <script src="game.js"></script>
+    <script>
+        function setGameMode(mode) {
+            isDailyMode = mode === 'daily';
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            document.getElementById('dailyInfo').style.display = isDailyMode ? 'block' : 'none';
+            
+            if (isDailyMode) {
+                updateNextChallengeTime();
+                setInterval(updateNextChallengeTime, 1000);
+            }
+            
+            loadRandomPassage();
+        }
+
+        function updateNextChallengeTime() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const timeLeft = tomorrow - now;
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('nextChallengeTime').textContent = 
+                `${hours}h ${minutes}m ${seconds}s`;
+        }
+    </script>
+</body>
+</html> 

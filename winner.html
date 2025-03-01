@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK WYRM - Victory!</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: monospace;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #00ff00; }
+            to { text-shadow: 0 0 20px #00ff00; }
+        }
+        .ascii-trophy {
+            white-space: pre;
+            font-family: monospace;
+            margin: 20px 0;
+            color: #00ff00;
+            font-size: 14px;
+        }
+        .score {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .book-link {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            max-width: 600px;
+        }
+        .book-link a {
+            color: #00ff00;
+            text-decoration: none;
+            border-bottom: 1px solid #00ff00;
+        }
+        .book-link a:hover {
+            color: white;
+            border-bottom-color: white;
+        }
+        .menu-bar {
+            margin-top: 40px;
+        }
+        .menu-bar a {
+            color: #00ff00;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #00ff00;
+            margin: 0 10px;
+        }
+        .menu-bar a:hover {
+            background: #00ff00;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>VICTORY!</h1>
+    <div class="ascii-trophy">
+       ___________
+      '._==_==_=_.'
+      .-\\:      /-.
+     | (|:.     |) |
+      '-|:.     |-'
+        \\::.    /
+         '::. .'
+           ) (
+         _.' '._
+        `"""""""`
+    </div>
+    <div class="score" id="victoryMessage"></div>
+    <div class="book-link">
+        <p>Enjoyed reading "<span id="bookTitle"></span>" by <span id="bookAuthor"></span>?</p>
+        <p>Download the complete book from <a id="gutenbergLink" href="#" target="_blank">Project Gutenberg!</a></p>
+    </div>
+    <div class="menu-bar">
+        <a href="game.html">Play Again</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const arrowCount = localStorage.getItem('arrowsUsed') || '0';
+            const bookTitle = localStorage.getItem('winningBookTitle') || 'Unknown Book';
+            const bookAuthor = localStorage.getItem('winningBookAuthor') || 'Unknown Author';
+            const bookUrl = localStorage.getItem('winningBookUrl') || '#';
+
+            // Set victory message based on arrows used
+            const victoryMessage = document.getElementById('victoryMessage');
+            if (arrowCount === '0') {
+                victoryMessage.textContent = "Perfect victory! You defeated the Book Wyrm without using any arrows!";
+            } else if (arrowCount === '1') {
+                victoryMessage.textContent = "You defeated the Book Wyrm with 1 arrow!";
+            } else {
+                victoryMessage.textContent = `You defeated the Book Wyrm with ${arrowCount} arrows!`;
+            }
+
+            document.getElementById('bookTitle').textContent = bookTitle;
+            document.getElementById('bookAuthor').textContent = bookAuthor;
+            document.getElementById('gutenbergLink').href = bookUrl;
+        });
+    </script>
+</body>
+</html> 
